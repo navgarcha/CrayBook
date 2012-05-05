@@ -1,7 +1,7 @@
 "use strict"
 
 class ShitCray
-    
+
     # Dat shit about to get cray
     constructor: (crayDelay = 500) ->
         # Do the replacement functionality
@@ -45,15 +45,16 @@ class ShitCray
         
     # Do the replacement functionality
     shitCray: =>
-        likeElms = $ @LIKE_BUTTON_SELECTOR + @SAVING_SELECTOR
-        likeThisElms = $ @LIKE_TEXT_SELECTOR.join()
+        $likeElms = $ @LIKE_BUTTON_SELECTOR + @SAVING_SELECTOR
+        $likeThisElms = $ @LIKE_TEXT_SELECTOR.join()
         
         # Replace "Like" and "Unlike"
-        @replaceLike elm, type for elm in likeElms when /like/i.test(type = elm.textContent.toLowerCase())
+        @replaceLike elm, type for elm in $likeElms when /like/i.test(type = elm.textContent.toLowerCase())
     
         # Replace "like this" and "likes this"
-        @replaceLikeThis elm for elm in likeThisElms.contents() when elm.nodeType is 3
+        @replaceLikeThis elm for elm in $likeThisElms.contents() when elm.nodeType is 3
     
         return
         
-$ -> new ShitCray 200
+$ -> 
+    new ShitCray 200

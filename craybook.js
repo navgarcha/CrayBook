@@ -25,16 +25,16 @@ ShitCray = (function() {
     return elm.textContent = elm.textContent.replace("likes this", this.LIKES_THIS_REPLACE);
   };
   ShitCray.prototype.shitCray = function() {
-    var elm, likeElms, likeThisElms, type, _i, _j, _len, _len2, _ref;
-    likeElms = $(this.LIKE_BUTTON_SELECTOR + this.SAVING_SELECTOR);
-    likeThisElms = $(this.LIKE_TEXT_SELECTOR.join());
-    for (_i = 0, _len = likeElms.length; _i < _len; _i++) {
-      elm = likeElms[_i];
+    var $likeElms, $likeThisElms, elm, type, _i, _j, _len, _len2, _ref;
+    $likeElms = $(this.LIKE_BUTTON_SELECTOR + this.SAVING_SELECTOR);
+    $likeThisElms = $(this.LIKE_TEXT_SELECTOR.join());
+    for (_i = 0, _len = $likeElms.length; _i < _len; _i++) {
+      elm = $likeElms[_i];
       if (/like/i.test(type = elm.textContent.toLowerCase())) {
         this.replaceLike(elm, type);
       }
     }
-    _ref = likeThisElms.contents();
+    _ref = $likeThisElms.contents();
     for (_j = 0, _len2 = _ref.length; _j < _len2; _j++) {
       elm = _ref[_j];
       if (elm.nodeType === 3) {
